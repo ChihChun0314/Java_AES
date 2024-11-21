@@ -11,21 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 檢查出儲存庫
       - name: Check out repository
         uses: actions/checkout@v3
 
-      # 設定 Java 環境
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: '11' # 可改成你需要的版本
+          java-version: '11'
           distribution: 'temurin'
 
-      # 編譯 Java 文件
       - name: Compile Java files
-        run: javac -d out src/**/*.java
+        run: javac -d out FileEncryptionApp/src/*.java
 
-      # 執行主程式
       - name: Run Java application
-        run: java -cp out Main # 把 Main 替換成你的主程式名稱
+        run: java -cp out FileEncryptionApp
